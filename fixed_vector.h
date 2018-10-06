@@ -23,10 +23,8 @@ public:
     }
 
     fixed_vector &operator=(fixed_vector const &other) {
-        clear();
-        size_ = other.size_;
-        for (size_t i = 0; i < size_; i++)
-            new(&data[size_++])T(other.data[i]);
+        auto tmp = other;
+        swap(tmp);
         return *this;
     }
 
