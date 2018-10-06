@@ -23,7 +23,7 @@ public:
     }
 
     fixed_vector &operator=(fixed_vector const &other) {
-        auto tmp = other;
+        fixed_vector tmp = other;
         swap(tmp);
         return *this;
     }

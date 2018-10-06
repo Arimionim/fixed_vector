@@ -209,3 +209,12 @@ TEST_CASE ("random tests") {
         }
     }
 }
+
+
+TEST_CASE ("new test 1") {
+    fixed_vector<std::string, 5> v1;
+    v1.push_back("very very very very very very very very very very very very very very very very ");
+    fixed_vector<std::string, 5> v2;
+    v2.push_back("very very very very very very very very very very very very very very very very ");
+    v1 = v2;
+}
