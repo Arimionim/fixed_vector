@@ -19,7 +19,7 @@ public:
 
     fixed_vector(fixed_vector const &other): size_(other.size_) {
         for (size_t i = 0; i < size_; i++)
-            data[i] = (other.data[i]);
+            new(reinterpret_cast<T *>(data) + i) T(reinterpret_cast<const T *>(other.data)[i]);
     }
 
     fixed_vector &operator=(fixed_vector const &other) {
