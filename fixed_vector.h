@@ -26,7 +26,7 @@ public:
         clear();
         size_ = other.size_;
         for (size_t i = 0; i < size_; i++)
-            data[i] = (other.data[i]);
+            new(&data[size_++])T(other.data[i]);
         return *this;
     }
 
@@ -42,7 +42,7 @@ public:
 
     void pop_back() {
         if (empty())
-            throw std::length_error("cant pop_back is empty");
+            throw std::length_error("cant pop_back vector is empty");
         reinterpret_cast<T *>(data + size_ - 1)->~T();
         size_--;
     }
